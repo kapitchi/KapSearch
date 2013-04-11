@@ -1,5 +1,12 @@
 <?php
-namespace KapitchiSearch\SearchRequest;
+/**
+ * Kapitchi Zend Framework 2 Modules (http://kapitchi.com/)
+ *
+ * @copyright Copyright (c) 2012-2013 Kapitchi Open Source Team (http://kapitchi.com/open-source-team)
+ * @license   http://opensource.org/licenses/LGPL-3.0 LGPL 3.0
+ */
+
+namespace KapSearch\SearchRequest;
 
 /**
  *
@@ -14,7 +21,7 @@ class HttpRequest implements SearchRequestInterface
         $this->setHttpRequest($httpRequest);
     }
     
-    public function configureSearchOptions(\KapitchiSearch\Service\SearchOptionsInterface $options)
+    public function configureSearchOptions(\KapSearch\Service\SearchOptionsInterface $options)
     {
         $request = $this->getHttpRequest();
         $s = $request->getQuery()->get('s');
@@ -22,9 +29,9 @@ class HttpRequest implements SearchRequestInterface
             return;
         }
         
-        $predicateSet = new \KapitchiSearch\Predicate\PredicateSet();
+        $predicateSet = new \KapSearch\Predicate\PredicateSet();
         if(is_string($s)) {
-            $p = new \KapitchiSearch\Predicate\Fulltext();
+            $p = new \KapSearch\Predicate\Fulltext();
             $p->setValue($s);
             $predicateSet->addPredicate($p);
             $options->setPredicateSet($predicateSet);

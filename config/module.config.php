@@ -24,7 +24,7 @@ return array(
                 'options' => array(
                     'route'    => '/search',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'KapitchiSearch\Controller',
+                        '__NAMESPACE__' => 'KapSearch\Controller',
                     ),
                 ),
                 'may_terminate' => false,

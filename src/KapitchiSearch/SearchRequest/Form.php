@@ -1,5 +1,12 @@
 <?php
-namespace KapitchiSearch\SearchRequest;
+/**
+ * Kapitchi Zend Framework 2 Modules (http://kapitchi.com/)
+ *
+ * @copyright Copyright (c) 2012-2013 Kapitchi Open Source Team (http://kapitchi.com/open-source-team)
+ * @license   http://opensource.org/licenses/LGPL-3.0 LGPL 3.0
+ */
+
+namespace KapSearch\SearchRequest;
 
 /**
  *
@@ -27,10 +34,10 @@ class Form implements SearchRequestInterface
         return $predicate;
     }
     
-    public function configureSearchOptions(\KapitchiSearch\Service\SearchOptionsInterface $options)
+    public function configureSearchOptions(\KapSearch\Service\SearchOptionsInterface $options)
     {
         $form = $this->getForm();
-        $predicateSet = new \KapitchiSearch\Predicate\PredicateSet();
+        $predicateSet = new \KapSearch\Predicate\PredicateSet();
         
         $elements = $form->getElements();
         foreach($elements as $element) {
@@ -67,7 +74,7 @@ class Form implements SearchRequestInterface
             $predicate->setValue($value);
             
             //XXX TODO mz: quick hack for working with intervals
-            if($predicate instanceof \KapitchiSearch\Predicate\Interval) {
+            if($predicate instanceof \KapSearch\Predicate\Interval) {
                 if($predicate->getValue() == $predicate->getSeparator()) {
                     continue;
                 }

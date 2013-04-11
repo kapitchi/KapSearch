@@ -1,6 +1,12 @@
 <?php
+/**
+ * Kapitchi Zend Framework 2 Modules (http://kapitchi.com/)
+ *
+ * @copyright Copyright (c) 2012-2013 Kapitchi Open Source Team (http://kapitchi.com/open-source-team)
+ * @license   http://opensource.org/licenses/LGPL-3.0 LGPL 3.0
+ */
 
-namespace KapitchiSearch;
+namespace KapSearch;
 
 use Zend\EventManager\EventInterface,
     Zend\ModuleManager\Feature\ControllerProviderInterface,
@@ -22,10 +28,10 @@ class Module extends AbstractModule
     {
         return array(
             'factories' => array(
-                'KapitchiSearch\Controller\GlobalSearch' => function($sm) {
+                'KapSearch\Controller\GlobalSearch' => function($sm) {
                     $ins = new Controller\GlobalSearchController(
-                            $sm->getServiceLocator()->get('KapitchiSearch\Form\Search'),
-                            $sm->getServiceLocator()->get('KapitchiSearch\Service\SearchEngine')
+                            $sm->getServiceLocator()->get('KapSearch\Form\Search'),
+                            $sm->getServiceLocator()->get('KapSearch\Service\SearchEngine')
                     );
                     return $ins;
                 },
@@ -49,10 +55,10 @@ class Module extends AbstractModule
     {
         return array(
             'invokables' => array(
-                //'KapitchiAuction\Entity\Auction' => 'KapitchiAuction\Entity\Auction',
+                //'KapAuction\Entity\Auction' => 'KapAuction\Entity\Auction',
             ),
             'factories' => array(
-                'KapitchiSearch\Form\Search' => function ($sm) {
+                'KapSearch\Form\Search' => function ($sm) {
                     $ins = new Form\Search();
                     return $ins;
                 },
